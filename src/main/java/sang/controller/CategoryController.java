@@ -14,6 +14,7 @@ public class CategoryController {
     @Resource
     private CategoryService categoryService;
 
+    //获得全部分类
     @CrossOrigin
     @GetMapping("/getCategory")
     public Object getCategory(){
