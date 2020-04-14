@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sang.mapper.BooksMapper">
+    <select id="listbooks" resultType="sang.pojo.Books">
+        select books.id,books.name,books.image,books.readNumber,category.name as categoryname,category.thisvipId as thisvipid from books,category
+        where books.categoryId=category.id
+        limit 4
+    </select>
+
+    <select id="categoryList" resultType="sang.pojo.Books">
+        select * from Books where categoryId =#{categoryId}
+        limit 4
+    </select>
+
+    <select id="RankingList" resultType="sang.pojo.Books">
+        select books.id,books.name,books.image,books.readNumber,category.name as categoryname,category.thisvipId as thisvipid from books,category
+         where books.categoryId=category.id order by readNumber desc
+    </select>
+
+</mapper>
